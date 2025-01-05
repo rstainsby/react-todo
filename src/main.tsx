@@ -10,7 +10,7 @@ const App = () => {
         <h1>Hello, World!</h1>
       </div>
     </StrictMode>
-  )
+  );
 };
 
 const container = document.getElementById("root");

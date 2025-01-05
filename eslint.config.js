@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import ts from 'typescript-eslint';
 import globals from "globals";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -10,7 +11,7 @@ export default [
     ignores: ["dist", "node_modules"],
   },
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -29,6 +30,7 @@ export default [
     },
     rules: {
       ...js.configs.recommended.rules,
+      ...ts.configs.recommended.rules,
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
       ...reactHooks.configs.recommended.rules,
