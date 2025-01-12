@@ -21,11 +21,23 @@ export default [
         sourceType: "module",
       },
     },
-    settings: { react: { version: "18.3" } },
+    settings: {
+      react: { version: "18.3" },
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"],
+      },
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        }
+      }
+    },
+    parser: ts.parser,
     plugins: {
       react,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      '@typescript-eslint': ts.plugin,
       prettier: prettier,
     },
     rules: {
@@ -41,5 +53,4 @@ export default [
       ],
     },
   },
-  prettier
 ];
