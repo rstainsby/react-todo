@@ -42,7 +42,7 @@ export default [
     },
     rules: {
       ...js.configs.recommended.rules,
-      ...ts.configs.recommended.rules,
+      ...ts.configs.recommendedTypeChecked.rules,
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
       ...reactHooks.configs.recommended.rules,
