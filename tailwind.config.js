@@ -9,6 +9,9 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+		container: {
+			center: true,
+		},
   	extend: {
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -59,5 +62,5 @@ export default {
   		}
   	}
   },
-  plugins: [TailwindAnimate],
+  plugins: [TailwindAnimate, require("tailwindcss-animate")],
 }
