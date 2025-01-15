@@ -25,15 +25,15 @@ I intend to expand this project to recreate the core functionality of the [todoi
 
 This app is built using TypeScript along with these wonderful packages:
 
-🏗️ Framework: [React 18](https://react.dev/blog/2022/03/29/react-v18)
-📡 Routing & Request Handling: [TanStack (Router & Query)](https://tanstack.com/)
-🎨 Styles: [Tailwind](https://tailwindcss.com/)
-🖼️ UI Library: [Shadcn](🧪)
-🧪 Unit Testing: [Vitest](https://vitest.dev/) (with HappyDom)
-🧪 End-to-end Testing: [Playwright](https://playwright.dev/)
-🔨 Build Tool: [Vite](https://vite.dev/)
-🔍 Linting: [ESLint](https://eslint.org/)
-👨‍🎨 Formatting: [Prettier](https://prettier.io/)
+- 🏗️ Framework: [React 18](https://react.dev/blog/2022/03/29/react-v18)
+- 📡 Routing & Request Handling: [TanStack (Router & Query)](https://tanstack.com/)
+- 🎨 Styles: [Tailwind](https://tailwindcss.com/)
+- 🖼️ UI Library: [Shadcn](🧪)
+- 🧪 Unit Testing: [Vitest](https://vitest.dev/) (with HappyDom)
+- 🧪 End-to-end Testing: [Playwright](https://playwright.dev/)
+- 🔨 Build Tool: [Vite](https://vite.dev/)
+- 🔍 Linting: [ESLint](https://eslint.org/)
+- 👨‍🎨 Formatting: [Prettier](https://prettier.io/)
 
 ## Getting started
 
