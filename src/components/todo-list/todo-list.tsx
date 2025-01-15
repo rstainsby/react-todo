@@ -9,12 +9,13 @@ export interface TodoListProps {
 }
 
 const TodoList = (props: TodoListProps) => {
+  const [ todos, setTodos ] = useState(props.todos);
   const [ showNewTodoForm, setShowNewTodoForm ] = useState(false);
 
   return (
     <ul className="flex flex-col gap-2 my-2">
-      {props.todos.filter(todo => !todo.completed).map(todo => (
-        <li key={todo.id} className="flex items-center gap-3 border-b border-neutral py-4 cursor-pointer text-secondary-foreground" onClick={() => todo.completed = true}>
+      {todos.filter(todo => !todo.completed).map(todo => (
+        <li key={todo.id} className="flex items-center gap-3 border-b border-neutral pt-2 pb-4 cursor-pointer text-secondary-foreground" onClick={() => todo.completed = true}>
           <button aria-label={`complete-task-${todo.id}`} name={`complete-task-${todo.id}`} className="flex justify-center items-center border border-secondary-foreground size-5 rounded-full">
             <Check className="text-muted-foreground opacity-0 mt-0.5 transition-opacity ease-in hover:opacity-100" size={16} />
           </button>
@@ -27,7 +28,7 @@ const TodoList = (props: TodoListProps) => {
           <div>
             <NewTodoForm 
               onCancel={ () => setShowNewTodoForm(false) } 
-              onTodoAdded={ () => console.log('Todo added') } 
+              onTodoAdded={ (newTodo) => setTodos([...todos, newTodo]) } 
             />
           </div>
         )
