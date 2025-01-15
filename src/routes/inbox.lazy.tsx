@@ -17,7 +17,7 @@ function Index() {
   })
 
   return (
-    <div className="flex flex-col gap-2 container max-w-screen-sm">
+    <div className="flex flex-col gap-2 my-16 container max-w-screen-sm">
       <h1 className="text-3xl font-bold">Inbox</h1>
       {isLoading ? <TodoListLoading /> : <TodoList todos={data?.todos || []} />}
     </div>
