@@ -15,6 +15,7 @@ export default [
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parser: ts.parser,
       parserOptions: {
         ecmaVersion: "latest",
         ecmaFeatures: { jsx: true },
@@ -32,7 +33,6 @@ export default [
         }
       }
     },
-    parser: ts.parser,
     plugins: {
       react,
       "react-hooks": reactHooks,

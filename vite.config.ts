@@ -21,6 +21,9 @@ export default defineConfig({
     }
   },
   test: {
+    coverage: {
+      provider: 'v8'
+    },
     include: ['src/**/*.test.{js,jsx,ts,tsx}'],
     environment: 'happy-dom'
   }
