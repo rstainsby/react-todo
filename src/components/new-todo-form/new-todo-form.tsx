@@ -86,13 +86,13 @@ const NewTodoForm = (props: NewTodoFormProps) => {
           </FormItem>
         )} />
         <div className="@container flex justify-end mt-3 gap-1">
-          <Button role="button" variant="ghost" size="default" className="hidden @sm:block" onClick={props.onCancel}>
+          <Button type="button" variant="ghost" size="default" className="hidden @sm:block" onClick={props.onCancel}>
             Cancel
           </Button>
-          <button aria-label="cancel" className="@sm:hidden flex justify-center items-center size-8">
+          <button type="button" aria-label="cancel" className="@sm:hidden flex justify-center items-center size-8">
             <X size={28}/>
           </button>
-          <Button role="button" type="submit" variant="default" size="default" className="hidden @sm:block">
+          <Button type="submit" variant="default" size="default" className="hidden @sm:block">
             Add task
           </Button>
           <button aria-label="submit" type="submit" className="@sm:hidden flex justify-center items-center bg-primary rounded-sm text-background size-8">
