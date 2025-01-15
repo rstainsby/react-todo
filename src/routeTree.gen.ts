@@ -16,39 +16,25 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const TestingLazyImport = createFileRoute('/testing')()
-const IndexLazyImport = createFileRoute('/')()
+const InboxLazyImport = createFileRoute('/inbox')()
 
 // Create/Update Routes
 
-const TestingLazyRoute = TestingLazyImport.update({
-  id: '/testing',
-  path: '/testing',
+const InboxLazyRoute = InboxLazyImport.update({
+  id: '/inbox',
+  path: '/inbox',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/testing.lazy').then((d) => d.Route))
-
-const IndexLazyRoute = IndexLazyImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/inbox.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/testing': {
-      id: '/testing'
-      path: '/testing'
-      fullPath: '/testing'
-      preLoaderRoute: typeof TestingLazyImport
+    '/inbox': {
+      id: '/inbox'
+      path: '/inbox'
+      fullPath: '/inbox'
+      preLoaderRoute: typeof InboxLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -57,38 +43,33 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
-  '/testing': typeof TestingLazyRoute
+  '/inbox': typeof InboxLazyRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
-  '/testing': typeof TestingLazyRoute
+  '/inbox': typeof InboxLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexLazyRoute
-  '/testing': typeof TestingLazyRoute
+  '/inbox': typeof InboxLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/testing'
+  fullPaths: '/inbox'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/testing'
-  id: '__root__' | '/' | '/testing'
+  to: '/inbox'
+  id: '__root__' | '/inbox'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
-  TestingLazyRoute: typeof TestingLazyRoute
+  InboxLazyRoute: typeof InboxLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexLazyRoute: IndexLazyRoute,
-  TestingLazyRoute: TestingLazyRoute,
+  InboxLazyRoute: InboxLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -101,15 +82,11 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/testing"
+        "/inbox"
       ]
     },
-    "/": {
-      "filePath": "index.lazy.tsx"
-    },
-    "/testing": {
-      "filePath": "testing.lazy.tsx"
+    "/inbox": {
+      "filePath": "inbox.lazy.tsx"
     }
   }
 }
