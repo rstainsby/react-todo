@@ -4,7 +4,8 @@ The creatively named react-todo project is a recreation of the [todoist](todoist
 
 This project exists solely to allow me to refresh my skillset with a modern React stack, having worked primarily with Vue/Nuxt for a couple of years.
 
-The current phase of this project has been built without a meta-framework e.g Next.js as I believe it would be overkill for a project of this size. Plus I believe in prinicples-first learning - that learning how to build without a tool before learning how to build with it develops a far greater appreciation and understanding for that too - and the main purpose of this project is to learn.
+## Key Decisions
+The current phase of this project has been built without a meta-framework e.g Next.js as I believe it would be overkill for a project of this size. Plus, I believe in prinicples-first learning - that learning how to build without a tool before learning how to build with it develops a far greater appreciation and understanding for that too - and the main purpose of this project is to learn!
 
 To make this experience as realistic as possible, I have opted to use all of the tools that I would expect to find in a production codebase. This includes:
 - Code linting & formatting
