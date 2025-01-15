@@ -7,7 +7,7 @@ interface FutureDayButtonProps {
   onClick: (value: Date) => void;
 }
 
-type FutureDateLabel = 'Tomorrow' | 'Later this week' | 'This weekend' | 'Next week';
+export type FutureDateLabel = 'Tomorrow' | 'Later this week' | 'This weekend' | 'Next week';
 
 const FutureDayButton = ({ label, onClick }: FutureDayButtonProps) => {  
   const actualDate = getDateFromText(label);

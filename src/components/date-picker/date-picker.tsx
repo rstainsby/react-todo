@@ -35,7 +35,7 @@ const DatePicker = (props: DatePickerProps) => {
                 </span>
               </>
             )}
-            {props.date && <Button variant="ghost" className="p-0" onClick={(event) => {
+            {props.date && <Button aria-label="close" variant="ghost" className="p-0" onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
               props.onChange(undefined)
@@ -60,17 +60,6 @@ const DatePicker = (props: DatePickerProps) => {
       </PopoverContent>
     </Popover>
   )
-}
-
-function updateDateProps(original: Date | undefined, updated: Date): void {
-  console.log('wtf', original, updated);
-  if (original) {
-    original.setFullYear(updated.getFullYear());
-    original.setMonth(updated.getMonth());
-    original.setDate(updated.getDate());
-  } else {
-    original = updated;
-  }
 }
 
 export default DatePicker;

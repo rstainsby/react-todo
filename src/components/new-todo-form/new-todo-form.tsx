@@ -10,6 +10,7 @@ import { Button } from "../shadcn/button";
 import { SendHorizonal, X } from "lucide-react";
 import { Textarea } from "../shadcn/textarea";
 import DatePicker from "../date-picker/date-picker";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   taskName: z.string().nonempty(),
@@ -46,13 +47,20 @@ const NewTodoForm = (props: NewTodoFormProps) => {
     }
   })
 
-  if (mutation.isSuccess) {
-    props.onTodoAdded(mutation.data!);
+  useEffect(() => {
+    if (!mutation.isSuccess) return;
+
+    props.onTodoAdded(mutation.data);
+    form.reset();
+  }, [mutation.isSuccess]);
+
+  function onSubmit(data: z.infer<typeof formSchema>) {
+    mutation.mutateAsync(data);
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit((data) => mutation.mutateAsync(data))} className="mt-3 rounded-md outline-secondary p-1 has-[:focus]:outline">
+      <form role="form" onSubmit={form.handleSubmit(onSubmit)} className="mt-3 rounded-md outline-secondary p-1 has-[:focus]:outline">
         <FormField control={form.control} name="taskName" render={({ field }) => (
           <FormItem>
             <FormControl>
@@ -84,7 +92,7 @@ const NewTodoForm = (props: NewTodoFormProps) => {
           <button aria-label="cancel" className="@sm:hidden flex justify-center items-center size-8">
             <X size={28}/>
           </button>
-          <Button role="button" variant="default" size="default" className="hidden @sm:block" onClick={props.onCancel}>
+          <Button role="button" type="submit" variant="default" size="default" className="hidden @sm:block">
             Add task
           </Button>
           <button aria-label="submit" type="submit" className="@sm:hidden flex justify-center items-center bg-primary rounded-sm text-background size-8">
